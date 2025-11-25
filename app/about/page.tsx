@@ -272,7 +272,7 @@ export default function AboutSection() {
 
                     {/* İÇERİK ALANI: Metin ve Resimler */}
                     {/* Grid kullanarak metin ve resim alanını yan yana getiriyoruz */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-16">
                         
                         {/* Metin Alanı (Sol Sütun) */}
                         <div className="text-left order-2 md:order-1"> {/* Mobil görünümde metin altta, desktop'ta solda */}
@@ -303,7 +303,7 @@ export default function AboutSection() {
                                   alt="Ana Profil"
                                   className="
                                     absolute top-0 left-0 object-cover shadow-2xl z-30
-                                    w-[250px] h-[350px] md:w-[200px] md:h-[280px] lg:w-[250px] lg:h-[350px]
+                                    w-[200px] h-[300px] md:w-[200px] md:h-[280px] lg:w-[250px] lg:h-[350px]
                                   "
                                   style={{ filter: "grayscale(100%)", opacity: 0.3 }}
                                 />
@@ -315,7 +315,7 @@ export default function AboutSection() {
                                   alt="Necmettin Erbakan Üniversitesi"
                                   className="
                                     absolute object-cover shadow-2xl z-30
-                                    max-w-[200px] mx-auto md:max-w-[200px] 
+                                    max-w-[150px] mx-auto md:max-w-[200px] 
                                     pt-10   
                                     md:pt-0
                                   "

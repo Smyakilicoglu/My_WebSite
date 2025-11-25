@@ -296,7 +296,7 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       </div>
 
       {/* Hakkımda Yazısı */}
-      <div className="relative z-10 text-center max-w-3xl px-4 p-6 hakkimda backdrop-blur-sm">
+      <div className="relative z-10 text-center max-w-3xl px-4 p-6 hakkimda newspaper-bg backdrop-blur-sm">
           {/* HAREKETLİ BAŞLIK */}
           <SplitWords triggerID = "about-section-trigger">
             <h2 className="italic-cursive text-[#630000] text-4xl font-bold mb-6">Hakkımda</h2>

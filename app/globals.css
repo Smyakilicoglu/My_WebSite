@@ -90,7 +90,7 @@
 body, .hakkimda {
   /* Mevcut ayarlar korunuyor */
   background: var(--background);
-  color: var(--foreground);
+  color: #000000 !important;
   font-family: 'Lora', serif;
   
   /* Gazete dokusu ve ton */
