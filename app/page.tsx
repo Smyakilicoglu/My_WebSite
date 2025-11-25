@@ -231,7 +231,7 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
           SÜMEYRA KILIÇOĞLU
         </h1>
         <p className="mt-2 text-base sm:text-lg md:text-xl">
-          Yenilikçi projeler geliştiren, çözüm odaklı bir yazılım mühendisiyim.
+          Yenilikçi projeler geliştiren, çözüm odaklı bir bilgisayar mühendisi öğrencisiyim.
         </p>
       </div>
 
@@ -259,7 +259,7 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       {/* ---------------- ABOUT SECTION ---------------- */}
       <section
       ref={aboutRef}
-      id="about"
+      id="about-section-trigger"
       className="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-cover bg-center"
       style={{ paddingTop: "50px", paddingBottom: "50px" }}
     >
@@ -296,11 +296,18 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       </div>
 
       {/* Hakkımda Yazısı */}
-      <div className="relative z-10 text-center max-w-3xl px-4 text-black">
-        <h2 className="italic-cursive text-[#630000] text-4xl font-bold mb-6">Hakkımda</h2>
-        <p className="text-lg leading-relaxed">
-          Teknolojiyi sadece geliştiren değil, gerçek dünyada faydaya dönüştüren bir yazılım mühendisi olmayı hedefliyorum.
-        </p>
+      <div className="relative z-10 text-center max-w-3xl px-4 p-6 hakkimda backdrop-blur-sm">
+          {/* HAREKETLİ BAŞLIK */}
+          <SplitWords triggerID = "about-section-trigger">
+            <h2 className="italic-cursive text-[#630000] text-4xl font-bold mb-6">Hakkımda</h2>
+          </SplitWords>
+
+          {/* HAREKETLİ PARAGRAF */}
+          <SplitWords triggerID = "about-section-trigger">
+            <p className="text-lg leading-relaxed">
+              Teknolojiyi sadece geliştiren değil, gerçek dünyada faydaya dönüştüren bir yazılım mühendisi olmayı hedefliyorum.
+            </p>
+          </SplitWords>
         <div className="relative w-fit mx-auto">
           <a href="/about">
             <button

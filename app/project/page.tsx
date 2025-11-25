@@ -8,7 +8,7 @@ import { ExternalLink, ChevronDown } from "lucide-react"; // Ikon değişti
 // Varsayımsal olarak, Next.js projenizin 'public' klasöründe
 // proje görsellerinin olduğu kabul edilmiştir.
 const IMAGE_BASE_PATH = ""; 
-const rotatingTexts = ["Web", "Mobil", "Blockchain", "AI", "Yapay Zeka", "Veritabanı", "Gömülü Sistemler", "Full-Stack"];
+const rotatingTexts = ["Web", "Mobil", "Blockchain", "Yapay Zeka", "Veritabanı", "Gömülü Sistemler", "Full-Stack"];
 
 
 export default function ProjectPage() {
@@ -50,9 +50,9 @@ export default function ProjectPage() {
             setTimeout(() => {
                 const element = document.getElementById(`project-${newIndex}`);
                 if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
-            }, 250); 
+            }, 750); 
             // (250ms animasyonun başlama zamanı için)
         }
     };
@@ -275,7 +275,9 @@ export default function ProjectPage() {
                             cursor-pointer 
                             transition-all 
                             duration-500 
-                            ease-in-out`}
+                            ease-in-out
+                            will-change-transform
+                            will-change-height`}
                     >
                         {/* HER ZAMAN GÖRÜNÜR BAŞLIK ALANI */}
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between">

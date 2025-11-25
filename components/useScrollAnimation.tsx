@@ -1,59 +1,80 @@
 "use client";
-import { useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-// ScrollTrigger'ı kaydet
-gsap.registerPlugin(ScrollTrigger);
+import React, { useRef, useEffect, ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+interface SplitWordsProps {
+  // Tetikleyici elementin ID'si (Home.tsx'te eklenen "about-section-trigger")
+  triggerID: string; 
+  children: ReactNode;
+}
 
 /**
- * Sayfa kaydırıldığında, '.animate-on-scroll' sınıfına sahip elementlere
- * alttan (y: 40px) yukarı kayma ve opaklık efekti uygular.
+ * Metni kelimelere böler ve kaydırma tetikleyicisi ile canlandırır (Fade-in ve Slide-up efekti).
+ * toggleActions: "play reverse play reverse" sayesinde sürekli tetiklenir.
  */
-export default function useScrollAnimation() {
+export default function SplitWords({ children, triggerID }: SplitWordsProps) {
+  const textRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // ScrollTrigger'ın yeniden tetiklenmesini ve çakışmasını önlemek için
-    // önceki tüm ScrollTrigger örneklerini temizle
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    if (!textRef.current) return;
+    
+    const triggerElement = document.getElementById(triggerID); 
 
-    const elements = document.querySelectorAll(".animate-on-scroll");
+    if (!triggerElement) {
+        console.error(`ScrollTrigger: ID "${triggerID}" bulunamadı.`);
+        return;
+    }
 
-    elements.forEach((el) => {
-      // Her element için yeni bir animasyon oluştur
+    let split: SplitText | null = null;
+    let ctx: gsap.Context | null = null;
+
+    ctx = gsap.context(() => {
+      // 1. Metni kelimelere böl
+      split = new SplitText(textRef.current, {
+        type: "words",
+        wordsClass: "split-word",
+      });
+
+      // 2. Animasyonu ayarla
       gsap.fromTo(
-        el,
-        { 
-          y: 40, 
-          opacity: 0, 
-          // Başlangıç durumunda animasyonun çakışmaması için hemen ayarla
-          // Bu, FOUC (Flash of Unstyled Content) sorununu da önleyebilir.
-          visibility: 'hidden' 
-        }, 
+        split.words,
+        {
+          y: 20, // 20px aşağıdan başla
+          opacity: 0,
+          filter: "blur(4px)", // Hafif bulanıklıktan başla
+        },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8, // Süreyi hafifçe uzattım, daha akıcı bir geçiş için
+          filter: "blur(0px)",
+          duration: 0.8,
           ease: "power2.out",
-          // Animasyon bittiğinde görünürlüğü kalıcı olarak aç
-          visibility: 'visible',
-          
+          stagger: 0.05, // Her kelime arasında 0.05 saniye gecikme
           scrollTrigger: {
-            trigger: el,
-            // 'top 85%': Elementin üst kısmı, viewport'un %85'ine geldiğinde başla
-            start: "top 85%",
-            // play: Bir kez görünce oynat
-            // none: Geri kaydırırken tetikleme
-            // none: İleri kaydırırken tekrar tetikleme
-            // reverse: Geri kaydırırken tersine çevir (kapat)
-            toggleActions: "play none none reverse", 
+            trigger: triggerElement, // Tetikleyici element
+            start: "top bottom-=300", // Tetikleyici %80 göründüğünde animasyonu başlat
+            // BU KISIM DEĞİŞTİ: play reverse play reverse
+            // 1. onEnter: 'play' -> Animasyonu oynat
+            // 2. onLeave: 'reverse' -> Animasyonu geri sar
+            // 3. onEnterBack: 'play' -> Geri kaydırırken girerse tekrar oynat
+            // 4. onLeaveBack: 'reverse' -> Geri kaydırırken çıkarsa tekrar geri sar
+            toggleActions: "play reverse play reverse", 
           },
         }
       );
-    });
+    }, textRef); 
 
-    // Cleanup fonksiyonu: Component unmount edildiğinde tetikleyicileri temizle
     return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Cleanup
+      ctx?.revert();
+      split?.revert();
     };
-  }, []);
+  }, [children, triggerID]); 
+
+  return <div ref={textRef} className="inline-block text-black">{children}</div>;
 }

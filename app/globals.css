@@ -60,7 +60,14 @@
   }
 }
 
+/* global.css veya module.css dosyanıza ekleyin */
+.will-change-height {
+  will-change: height;
+}
 
+.will-change-transform {
+  will-change: transform;
+}
 
 
 
@@ -80,7 +87,7 @@
     line-height: 1.4;    
 }
 
-body {
+body, .hakkimda {
   /* Mevcut ayarlar korunuyor */
   background: var(--background);
   color: var(--foreground);
