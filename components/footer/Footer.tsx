@@ -54,10 +54,9 @@ export default function Footer() {
                     </div>
                 ) : (
                     <form
-                        action="https://formspree.io/f/xldknpgb" // <--- buraya Formspree action URL
+                        action="https://formspree.io/f/xldknpgb"
                         method="POST"
                         className="flex flex-col gap-4"
-                        onSubmit={() => setSubmitted(true)}
                       >
                         {/* Ad ve Soyad aynı satırda */}
                         <div className="flex flex-col sm:flex-row gap-2">
