@@ -228,8 +228,8 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
 
       {/* Sağ yazılar */}
       <div className="flex-1 flex flex-col justify-end items-end z-20 text-right">
-        <p className="text-lg">“Do what you can, with what you have, where you are.”</p>
-        <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>-Theodore Roosevelt</span>
+        <p className="text-lg">“Başarı, yalnızca çalışkanların ve azimlilerin eseridir.”</p>
+        <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>-Mustafa Kemal ATATÜRK</span>
       </div>
     </section>
 
