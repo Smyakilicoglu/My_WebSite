@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f0f0f0;
   --foreground: #171717;
 }
 
@@ -19,8 +24,335 @@
   }
 }
 
+/* styles/globals.css veya tailwind.css */
+@layer utilities {
+  .animated-border {
+    position: relative;
+    padding: 0.5rem 1rem; /* iç boşluk */
+    border-radius: 0.5rem;
+    z-index: 0;
+  }
+
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px; /* border kalınlığı */
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #630000, #f0f0f0, #630000, #f0f0f0);
+    background-size: 200% 100%;
+    animation: move-border 3s linear infinite;
+    
+    /* sadece çerçeveyi görünür yap */
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+
+    pointer-events: none; /* yazıya dokunulabilir */
+    z-index: -1; /* içerik üstte kalsın */
+  }
+
+  @keyframes move-border {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
+
+
+
+
+
+.italic-cursive {
+    font-family: 'Dancing Script', cursive; /* Kıvrımlı yazı tipi */
+    font-style: italic;                     /* İtalik yapar */
+    font-weight: 500;                       /* Normal kalınlık */
+    line-height: 1.4;                       /* Daha okunaklı */ 
+}
+
+
+
+.italic-numbers {
+    font-family: 'Great Vibes', cursive;
+    font-style: italic;   /* genellikle font italik zaten */
+    font-weight: 400;     
+    line-height: 1.4;    
+}
+
 body {
+  /* Mevcut ayarlar korunuyor */
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lora', serif;
+  
+  /* Gazete dokusu ve ton */
+  background-color: #fdfcf5; /* Hafif kağıt rengi */
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png'), /* Kağıt dokusu */
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px), /* Hafif çizgiler */
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px); /* Çizgiler x-y */
+  background-size: 
+    auto, /* dokuların kendi boyutu */
+    20px 20px, 
+    20px 20px;
+  background-blend-mode: multiply;
 }
+
+/* Yazı renklerini gazete havasına yaklaştır */
+/*p, h1, h2, h3, h4, h5, h6, span, li {
+  color: #2b2b2b; /* Daha soft siyah 
+  line-height: 1.6;
+}
+
+/* Şık gazete başlıkları efekti 
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}*/
+
+/* Optional: sayfaya hafif grain animasyonu ekleyelim */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Hafif grain efekti */
+  opacity: 0.05; /* Çok hafif görünür */
+  z-index: 9999;
+}
+
+.newspaper-bg {
+  background-color: #fdfcf5; /* Hafif kağıt rengi */
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png'), /* Kağıt dokusu */
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: auto, 20px 20px, 20px 20px;
+  background-blend-mode: multiply;
+  position: relative;
+  overflow: hidden;
+}
+
+.newspaper-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.clip-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 16px solid #A59D84;
+  transition: border-color 0.3s;
+}
+
+.group:hover .clip-triangle {
+  border-bottom-color: #A59D84; /* Hover’da aynı renk parlayacak */
+}
+
+
+/* --- NAVBAR HOVER ANİMASYONU --- */
+.nav-hover-text {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 3px;
+  font-weight: 500;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* The previous ::after rule attempted to duplicate children content and is not needed.
+   We animate the inner <span> instead. */
+
+.nav-hover-text span {
+  display: inline-block;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.nav-hover-text:hover span {
+  transform: translateY(-4px);
+}
+
+/* When the user presses the item (active), return the text to original position
+   so the click feels responsive. This also works nicely on touch on most browsers. */
+.nav-hover-text:active span {
+  transform: translateY(0);
+}
+
+/* --- DROPDOWN İTEMLERİ --- */
+/* --- DROPDOWN İTEMLERİ --- */
+.dropdown-item {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: color 0.2s; /* Renk geçişini koru */
+  outline: none; 
+  position: relative; /* ::after için referans noktası */
+  overflow: hidden; /* Gereksiz taşmaları önler */
+  z-index: 1; /* Yazının çizginin üstünde kalmasını sağlar */
+}
+
+/* 1. Alt çizgi stilini tanımla */
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Çizgi kalınlığı */
+  background-color: #630000; /* Çizgi rengi (Koyu tema rengi) */
+  
+  /* Başlangıçta çizgi yok: Genişliği 0'a ayarla */
+  transform: scaleX(0); 
+  transform-origin: left; /* Çizginin soldan başlamasını sağla */
+  transition: transform 0.3s ease-out; /* Animasyon hızı */
+  z-index: -1; /* Arka plan rengi/yazının altında kalsın */
+}
+
+.cizgi {
+    /* Butonun içindeki metnin üst çizgi ile karışmasını önlemek için */
+    position: relative; 
+    overflow: hidden; /* Çizginin başlangıçta buton sınırları içinde kalmasını sağlar */
+    z-index: 1; /* Diğer öğelerin üzerine çıkmasını sağlar */
+    
+    /* Gerekli diğer stiller (Tailwind sınıfları tarafından zaten sağlanmış olabilir) */
+}
+
+.cizgi::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #630000;
+    
+    /* Çizginin başlangıçta görünmez olması */
+    transform: scaleX(0); 
+    transform-origin: left; 
+    transition: transform 0.3s ease-out; 
+    
+    /* Çizgiyi metnin altına yerleştirir, ancak z-index: 1 olan butonu ezmez */
+    z-index: 0; 
+}
+
+/* Hover efekti: Buton üzerine gelindiğinde çizgiyi genişlet */
+.cizgi:hover::after {
+    transform: scaleX(1); 
+}
+
+/* Hover olduğunda yazı rengini değiştirmemesi için ekleme (isteğe bağlı) */
+.cizgi:hover {
+    color: #630000; 
+    background-color: transparent; /* Eğer varsayılan bir arka planı varsa kaldırır */
+}
+
+/* Hover olduğunda çizgiyi soldan sağa doğru %100 genişlet */
+.dropdown-item:hover::after {
+  transform: scaleX(1); 
+}
+
+/* Yeni Dropdown Kapsayıcı Stili */
+.newspaper-dropdown-content {
+  /* Arka planı tamamen beyazdan gazete dokusuna çekiyoruz */
+  background-color: #fdfcf5; 
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/paper-fibers.png'), 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: auto, 20px 20px;
+  background-blend-mode: multiply;
+
+  /* Temayı vurgulayan hafif çerçeve */
+  border: 1px solid #A59D84; 
+  
+  /* Gölgelendirmeyi temaya uydurma */
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1); /* Hafif 3D/eski kağıt etkisi */
+}
+
+/* Ayırıcı (Separator) stili */
+.dropdown-separator {
+  background-color: #A59D84; /* Temayla uyumlu kahverengi ayırıcı */
+}
+
+/* --- SHIMMER/GRAIN EFFECT (Karıncalanma) --- */
+@keyframes shimmer-grain {
+  0% {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+    text-shadow: 
+      0 0 0 transparent,
+      1px 1px 0 rgba(0,0,0,0.05),
+      -1px -1px 0 rgba(255,255,255,0.1);
+  }
+  15% {
+    opacity: 0.95;
+    filter: blur(0.4px) brightness(1.05);
+    text-shadow: 
+      0 0 2px rgba(0,0,0,0.1),
+      1px 1px 0 rgba(0,0,0,0.08),
+      -1px -1px 0 rgba(255,255,255,0.15);
+  }
+  30% {
+    opacity: 0.92;
+    filter: blur(0.2px) brightness(0.98);
+    text-shadow: 
+      0 0 1px rgba(0,0,0,0.12),
+      2px 2px 0 rgba(0,0,0,0.05),
+      -2px -2px 0 rgba(255,255,255,0.08);
+  }
+  45% {
+    opacity: 0.88;
+    filter: blur(0.5px) brightness(1.08);
+    text-shadow: 
+      0 0 3px rgba(0,0,0,0.15),
+      1px 1px 0 rgba(0,0,0,0.1),
+      -1px -1px 0 rgba(255,255,255,0.12);
+  }
+  60% {
+    opacity: 0.85;
+    filter: blur(0.3px) brightness(1.02);
+    text-shadow: 
+      0 0 2px rgba(0,0,0,0.08),
+      2px 2px 0 rgba(0,0,0,0.06),
+      -2px -2px 0 rgba(255,255,255,0.1);
+  }
+  75% {
+    opacity: 0.82;
+    filter: blur(0.4px) brightness(0.97);
+    text-shadow: 
+      0 0 4px rgba(0,0,0,0.12),
+      1px 1px 0 rgba(0,0,0,0.09),
+      -1px -1px 0 rgba(255,255,255,0.14);
+  }
+  90% {
+    opacity: 0.3;
+    filter: blur(0.6px) brightness(1.1);
+    text-shadow: 
+      0 0 2px rgba(0,0,0,0.2),
+      2px 2px 0 rgba(0,0,0,0.08),
+      -2px -2px 0 rgba(255,255,255,0.06);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(0px) brightness(1);
+    text-shadow: none;
+  }
+}
+
+.shimmer-fade {
+  animation: shimmer-grain 1.5s ease-in-out forwards !important;
+}
+
+
