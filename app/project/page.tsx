@@ -29,13 +29,14 @@ export default function ProjectPage() {
 
     // MD breakpoint'i (768px) altındaysak, isMobile'ı true yaparız.
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1024); 
-        };
+    if (typeof window === "undefined") return;
 
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const toggleProject = (index: number) => {
@@ -49,7 +50,7 @@ export default function ProjectPage() {
             setTimeout(() => {
                 const element = document.getElementById(`project-${newIndex}`);
                 if (element) {
-                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    element.scrollIntoView({ behavior: "smooth", block: "nearest" });
                 }
             }, 250); 
             // (250ms animasyonun başlama zamanı için)

@@ -22,8 +22,23 @@ export default function Home() {
   const [hoveredImg, setHoveredImg] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const router = useRouter();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+const lineRef = useRef<HTMLDivElement>(null);
 
+useEffect(() => {
+  if (!buttonRef.current || !lineRef.current) return;
 
+  gsap.to(lineRef.current, {
+    width: () => buttonRef.current?.offsetWidth + "px",
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: buttonRef.current,
+      start: "top 90%", // gecikme
+      end: "top 60%",   // geri çekilme noktası
+      scrub: true,
+    },
+  });
+}, []);
   
   // GIF refs array — 12 GIF için
   const gifRefs = useRef<HTMLDivElement[]>([]);
@@ -211,13 +226,17 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       "
     >
       {/* Sol yazılar */}
-      <div className="flex-1 flex flex-col justify-start z-20">
-        <h1 className="italic-cursive text-[#630000] text-4xl font-bold">SÜMEYRA KILIÇOĞLU</h1>
-        <p className="mt-2 text-lg">Yenilikçi projeler geliştiren, çözüm odaklı bir yazılım mühendisiyim.</p>
+      <div className="flex-1 flex flex-col justify-center z-20 text-center md:text-left mb-6 md:mb-0">
+        <h1 className="italic-cursive text-[#630000] text-3xl sm:text-4xl md:text-3xl font-bold">
+          SÜMEYRA KILIÇOĞLU
+        </h1>
+        <p className="mt-2 text-base sm:text-lg md:text-xl">
+          Yenilikçi projeler geliştiren, çözüm odaklı bir yazılım mühendisiyim.
+        </p>
       </div>
 
       {/* Ortadaki fotoğraf */}
-      <div ref={photoRef} className="relative w-64 h-64 overflow-hidden">
+      <div ref={photoRef} className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 overflow-hidden">
         <Image src="/profile.jpg" alt="Profil" fill className="object-cover" />
         <div
           ref={overlayRef}
@@ -227,9 +246,13 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       </div>
 
       {/* Sağ yazılar */}
-      <div className="flex-1 flex flex-col justify-end items-end z-20 text-right">
-        <p className="text-lg">“Başarı, yalnızca çalışkanların ve azimlilerin eseridir.”</p>
-        <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>-Mustafa Kemal ATATÜRK</span>
+      <div className="flex-1 flex flex-col justify-center items-center md:items-end z-20 text-center md:text-right">
+        <p className="text-sm sm:text-base md:text-lg">
+          “Başarı, yalnızca çalışkanların ve azimlilerin eseridir.”
+        </p>
+        <span className="italic-cursive text-[#630000]" style={{ fontSize: "20px" }}>
+          -Mustafa Kemal ATATÜRK
+        </span>
       </div>
     </section>
 
@@ -278,13 +301,25 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
         <p className="text-lg leading-relaxed">
           Teknolojiyi sadece geliştiren değil, gerçek dünyada faydaya dönüştüren bir yazılım mühendisi olmayı hedefliyorum.
         </p>
-        <a href="/about"><button
-          type="submit"
-          className="italic-cursive font-semibold pt-8 pb-2 px-6 transition-colors w-fit cizgi" 
-          style={{ fontSize: "22px"}}
-        >
-        İncele
-        </button></a>
+        <div className="relative w-fit mx-auto">
+          <a href="/about">
+            <button
+              type="submit"
+              className="italic-cursive font-semibold pt-8 pb-2 px-6 w-fit"
+              style={{ fontSize: "22px" }}
+              ref={buttonRef}
+            >
+              İncele
+            </button>
+          </a>
+
+          {/* Alt çizgi */}
+          <div
+            ref={lineRef}
+            className="absolute left-0 bottom-0 h-[2px] bg-[#630000]"
+            style={{ width: 0 }}
+          />
+        </div>
       </div>
     </section>
 

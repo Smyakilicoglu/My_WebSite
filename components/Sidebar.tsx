@@ -42,6 +42,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+  const setVH = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  setVH();
+  window.addEventListener('resize', setVH);
+
+  return () => window.removeEventListener('resize', setVH);
+}, []);
+
   return (
     <>
       {/* Backdrop */}
@@ -54,9 +66,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 h-screen w-[400px] bg-[#630000] opacity-90 
-        rounded-r-[40px] z-50 transform transition-transform duration-300 ease-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed left-0 top-0 w-[400px] bg-[#630000] opacity-90 
+          rounded-r-[40px] z-50 transform transition-transform duration-300 ease-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        style={{ height: 'calc(var(--vh, 1vh) * 100)' }}
       >
         {/* Close button */}
         <button
