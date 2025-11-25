@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { LinkedInLogoIcon, InstagramLogoIcon, EnvelopeClosedIcon } from "@radix-ui/react-icons";
+import { useEffect } from "react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -26,6 +27,20 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       />
     </svg>
   );
+
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768; // Tailwind sm breakpoint
+
+    if (isOpen && isMobile) {
+      document.body.style.overflow = "hidden"; // mobilde scroll kapanır
+    } else {
+      document.body.style.overflow = "auto"; // desktop normal
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <>

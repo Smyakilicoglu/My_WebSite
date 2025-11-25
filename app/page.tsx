@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SplitWords from "../components/useScrollAnimation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +21,9 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const [hoveredImg, setHoveredImg] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const router = useRouter();
+
+
   
   // GIF refs array — 12 GIF için
   const gifRefs = useRef<HTMLDivElement[]>([]);
@@ -297,6 +301,9 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
         className="relative w-full py-10 px-8 cursor-pointer group transition-all duration-300"
         onMouseEnter={() => setHoveredImg(project.img)}
         onMouseLeave={() => setHoveredImg(null)}
+        onClick={() => {
+          router.push("/project"); // burası sayfa geçişini sağlar
+        }}
       >
         <h3 className="
             text-2xl font-semibold
@@ -319,6 +326,8 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
         </p>
       </div>
     ))}
+
+
 
     {/* Fareyi takip eden resim */}
     {hoveredImg && (

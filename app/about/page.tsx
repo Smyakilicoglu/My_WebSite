@@ -12,10 +12,12 @@ export default function AboutSection() {
 
     // addToRefs fonksiyonu, imageRefs'e resimleri eklemek için gereklidir
     const addToRefs = (el: HTMLImageElement | null) => {
-        if (el && !imageRefs.current.includes(el)) {
-            imageRefs.current.push(el);
-        }
-    };
+    if (el && !imageRefs.current.includes(el)) {
+      imageRefs.current.push(el);
+      // Sayfa geçişi sonrası doğru başlangıç efekti
+      gsap.set(el, { opacity: 0.3, filter: "grayscale(100%)" });
+    }
+  };
     
 
     // ... (İlk useEffect: Soldan sağa kayan satırlar - Aynı kaldı)
@@ -231,6 +233,34 @@ export default function AboutSection() {
         });
     }, []);
 
+    // MOBİL SCROLL RENK AKTİVASYONU
+    useEffect(() => {
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        // 300px SCROLL YUKARISINA GELİNCE RENK AÇILSIN
+        if (scrollY > 100) {
+        gsap.to(imageRefs.current, {
+            opacity: 1,
+            filter: "grayscale(0%)",
+            duration: 0.8,
+            ease: "power2.out",
+        });
+        } else {
+        gsap.to(imageRefs.current, {
+            opacity: 0.3,
+            filter: "grayscale(100%)",
+            duration: 0.8,
+            ease: "power2.inOut",
+        });
+        }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     return (
         <main>
             <section className="w-full min-h-screen flex justify-center items-center text-black py-32">
@@ -264,7 +294,7 @@ export default function AboutSection() {
 
                         {/* Resim Alanı (Sağ Sütun) */}
                         {/* DEĞİŞİKLİK BURADA: Mobil cihazlarda (md altı) gizle */}
-                        <div className="md:w-full h-[450px] relative order-1 md:order-2"> 
+                        <div className="md:w-full h-[450px] relative order-1 md:order-2 z-0 md:z-10"> 
                             <div className="absolute w-full h-full">
                                 {/* Resim 1 */}
                                 <img
@@ -282,10 +312,12 @@ export default function AboutSection() {
                                 <img
                                   ref={addToRefs}
                                   src="/universite.jpg"
-                                  alt="Proje Görseli 1"
+                                  alt="Necmettin Erbakan Üniversitesi"
                                   className="
                                     absolute object-cover shadow-2xl z-30
-                                    w-[200px] h-[150px] md:w-[160px] md:h-[120px] lg:w-[200px] lg:h-[150px]
+                                    max-w-[200px] mx-auto md:max-w-[200px] 
+                                    pt-10   
+                                    md:pt-0
                                   "
                                   style={{ 
                                       left: '250px', 

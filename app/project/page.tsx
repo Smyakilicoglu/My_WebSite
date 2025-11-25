@@ -39,11 +39,23 @@ export default function ProjectPage() {
     }, []);
 
     const toggleProject = (index: number) => {
-        // Sadece mobil moddaysak (MD altı) tıklama olayını yönet
-        if (isMobile) {
-            setOpenIndex(openIndex === index ? null : index);
+        if (!isMobile) return;
+
+        const newIndex = openIndex === index ? null : index;
+        setOpenIndex(newIndex);
+
+        // Eğer yeni bir proje açılıyorsa sayfayı o projeye kaydır
+        if (newIndex !== null) {
+            setTimeout(() => {
+                const element = document.getElementById(`project-${newIndex}`);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }, 250); 
+            // (250ms animasyonun başlama zamanı için)
         }
     };
+
     
     // ... (Projeler dizisi buraya eklenmeli)
     const projects = [
@@ -246,6 +258,7 @@ export default function ProjectPage() {
                 {projects.map((proj, idx) => (
                     <div
                         key={idx}
+                        id={`project-${idx}`}
                         // Tıklama olayını tüm div'e ekleriz, sadece mobil modda aktif olur
                         onClick={() => toggleProject(idx)}
                         className={`
