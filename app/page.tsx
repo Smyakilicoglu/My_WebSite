@@ -248,7 +248,7 @@ useEffect(() => { if (!heroRef.current || !photoRef.current || !overlayRef.curre
       {/* Sağ yazılar */}
       <div className="flex-1 flex flex-col justify-center items-center md:items-end z-20 text-center md:text-right">
         <p className="text-sm sm:text-base md:text-lg">
-          “Başarı, yalnızca çalışkanların ve azimlilerin eseridir.”
+          “Çalışmak demek boşuna yorulmak terlemek değildir. Zamanın gereklerine göre bilim ve teknik ve her türlü uygar buluşlardan azamî derecede istifade etmek zorunludur”
         </p>
         <span className="italic-cursive text-[#630000]" style={{ fontSize: "20px" }}>
           -Mustafa Kemal ATATÜRK
