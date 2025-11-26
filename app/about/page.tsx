@@ -291,7 +291,7 @@ export default function AboutSection() {
                                 yazılım mühendisi olarak profesyonel alanda yer edinmek.
                             </p>
                         </div>
-
+                         
                         {/* Resim Alanı (Sağ Sütun) */}
                         {/* DEĞİŞİKLİK BURADA: Mobil cihazlarda (md altı) gizle */}
                         <div className="md:w-full h-[450px] relative order-1 md:order-2 z-0 md:z-10"> 
@@ -345,6 +345,71 @@ export default function AboutSection() {
                     </div>
                 </div>
             </section>
+            <section id="about" className="w-full text-black">
+            <div className="max-w-6xl mx-auto px-3 pb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                {/* 1. Sütun: Staj Deneyimi */}
+                <div className="p-6">
+                    <h3 className="font-bold text-xl mb-2 border-b-2 pb-5">
+                    Staj Deneyimi – Melikgazi Belediyesi Bilgi İşlem Departmanı
+                    </h3>
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}> Ağustos 2024 – Eylül 2024 | Yazılım Geliştirici Stajyeri </span>
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    Melikgazi Belediyesi Bilgi İşlem Departmanında gerçekleştirdiğim yazılım geliştirme stajı boyunca, teorik olarak bildiğim web teknolojilerini kurumsal bir ortamda uygulama fırsatı buldum. <span className="italic-cursive text-[#630000]" style={{fontSize: "22px"}}> React.js, Node.js </span> ve <span className="italic-cursive text-[#630000]" style={{fontSize: "22px"}}> SQL </span> gibi teknolojilerde sahip olduğum altyapıyı gerçek projeler üzerinde çalışarak güçlendirdim.
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>1. </span> Staj sürecinde Personel Portalı projesinin geliştirilmesinde aktif rol aldım. <span className="italic-cursive text-[#630000]" style={{fontSize: "22px"}}> React.js </span> ve <span className="italic-cursive text-[#630000]" style={{fontSize: "22px"}}> Bootstrap </span> kullanarak kullanıcı dostu ve erişilebilir arayüzler geliştirdim. Projenin canlıya geçiş sürecine destek sağladım.
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>2. </span> Mevcut sistemlerde hata tespiti, performans optimizasyonu ve özellik entegrasyonu konularında görev aldım. <span className="italic-cursive text-[#630000]" style={{fontSize: "22px"}}> API </span> bağlantıları kurarak verilerin doğru şekilde işlenmesi ve sunulması süreçlerine katkıda bulundum.
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>3. </span> Bu süreç bana yalnızca teknik açıdan değil; Git ile versiyon kontrolü, ekip içi iletişim ve görev takibi, kurumsal proje yönetimi, yazılım geliştirme–test–deployment döngüsünün pratik uygulaması konularında da değerli deneyimler kazandırdı.
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>4. </span> Bu staj, yazılım geliştirme sürecine hem teknik hem profesyonel açıdan daha olgun ve sistemli yaklaşmamı sağlayan dönüştürücü bir deneyim oldu.
+                    </p>
+                </div>
+
+                {/* 2. Sütun: Eğitim Bilgisi + Yetkinlikler + Sertifikalar */}
+                <div className="p-6">
+                    <h3 className="font-bold text-xl mt-7 mb-2 border-b-2 pb-5">
+                    Eğitim Bilgisi
+                    </h3>
+                    <p className="text-sm leading-relaxed pt-4">
+                    Bilgisayar Mühendisliği — Necmettin Erbakan Üniversitesi (Konya)
+                    </p>
+                    <p className="text-sm leading-relaxed pt-4">
+                    4. Sınıf Öğrencisi | AGNO: <span className="italic-cursive text-[#630000]" style={{fontSize: "15px"}}> 2.95</span>
+                    </p>
+
+                    {/* Sertifikalar */}
+                    <h3 className="font-bold text-xl mt-15 mb-2 border-b-2 pb-5">
+                    Sertifikalar
+                    </h3>
+
+                    {/* 1. Sertifika */}
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>1. </span> The Complete 2024 Web Development Bootcamp<br/>
+                    Alınan Kurum: Udemy<br/>
+                    Doğrulama: <a href="https://www.udemy.com/certificate/UC013a2472-39a5-4ebe-9c59-2838041f5b30/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
+                    </p>
+
+                    {/* 2. Sertifika */}
+                    <p className="text-sm leading-relaxed pt-4">
+                    <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>2. </span> The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert<br/>
+                    Alınan Kurum: Udemy<br/>
+                    Doğrulama: <a href="https://www.udemy.com/certificate/UC2ae72547-94b9-422d-a22c-dcc2b2a6a606/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
+                    </p>
+                </div>
+
+                </div>
+            </div>
+            </section>
+
     <section id="about" className="w-full text-black">
         <div className="max-w-6xl mx-auto px-3 pb-20">
   <div className="flex flex-wrap justify-between gap-8">

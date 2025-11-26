@@ -16,8 +16,8 @@ export default function ProjectPage() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-        setIndex((prev) => (prev + 1) % rotatingTexts.length);
-        }, 500); // 1 saniyede bir değişir
+            setIndex((prev) => (prev + 1) % rotatingTexts.length);
+        }, 500);
         return () => clearInterval(interval);
     }, []);
 
