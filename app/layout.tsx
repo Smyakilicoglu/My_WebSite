@@ -8,8 +8,6 @@ import Footer from "@/components/footer/Footer";
 //import AnimatedCopy from "../components/AnimatedTextWrapperProps";
 import { ReactNode } from "react";
 
-import ScrollAnimationWrapper from "../components/ScrollAnimationWrapper";
-
 
 export const metadata: Metadata = {
   title: "Sümeyra Kılıçoğlu",
