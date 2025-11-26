@@ -52,8 +52,7 @@ export default function ProjectPage() {
                 if (element) {
                     element.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
-            }, 750); 
-            // (250ms animasyonun başlama zamanı için)
+            }, 800); // Animasyonun bitmesini beklemek için 800ms gecikme
         }
     };
 
@@ -83,7 +82,7 @@ export default function ProjectPage() {
         "Mediapipe (Hareket ve Poz Algılama)", 
         "Firebase/SQLite (Veri Yönetimi)"
     ],
-    github: "...",
+    github: "https://github.com/Smyakilicoglu/Sign-Language-Translator-App-Analysis",
     image: "projeler1.png",
     },
     {
@@ -134,7 +133,7 @@ export default function ProjectPage() {
         "React (Ön Yüz Geliştirme)", 
         "Web3.js / Ethers.js (Blockchain Etkileşimi)"
     ],
-    github: "https://github.com/Smyakilicoglu/your-repo-3",
+    github: "https://github.com/Smyakilicoglu/Token",
     image: "projeler3.png", 
     },
     {
@@ -162,7 +161,7 @@ export default function ProjectPage() {
         "Tailwind CSS (Hızlı ve Modüler CSS Geliştirme)", 
         "ERC-721 Standardı (NFT Kontrat Mimarisi)"
     ],
-    github: "https://github.com/Smyakilicoglu/your-repo-4",
+    github: "https://github.com/Smyakilicoglu/NFT_Opend",
     image: "projeler4.png", 
     },
     {
@@ -189,7 +188,7 @@ export default function ProjectPage() {
         "Bcrypt (Parola Kriptografik Şifrelemesi)", 
         "Middleware (Erişim Kontrolü ve Yetkilendirme)"
     ],
-    github: "https://github.com/Smyakilicoglu/your-repo-5",
+    github: "https://github.com/Smyakilicoglu/Authentication",
     image: "projeler5.png", 
     },
     {
