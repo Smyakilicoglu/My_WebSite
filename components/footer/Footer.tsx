@@ -53,7 +53,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="newspaper-bg text-black w-full h-screen flex flex-col justify-center items-center">
+    <footer className="newspaper-bg text-black w-full h-screen flex flex-col justify-center items-center pt-10">
       <div className="max-w-4xl w-full px-6">
         {/* İki Sütunlu Yapı: flex ve md:flex-row ile mobil/masaüstü ayrımı */}
         <div className="flex flex-col md:flex-row gap-12">
@@ -73,7 +73,7 @@ export default function Footer() {
                 src="/cv.png"
                 alt="Sümeyra KILIÇOĞLU CV Önizlemesi"
                 className="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-300"
-                style={{ maxHeight: "300px" }} // Yüksekliği sınırladık
+                style={{ maxHeight: "200px" }} // Yüksekliği sınırladık
               />
             </div>
 
