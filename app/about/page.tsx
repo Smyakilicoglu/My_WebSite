@@ -272,7 +272,7 @@ export default function AboutSection() {
 
                     {/* İÇERİK ALANI: Metin ve Resimler */}
                     {/* Grid kullanarak metin ve resim alanını yan yana getiriyoruz */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
                         
                         {/* Metin Alanı (Sol Sütun) */}
                         <div className="text-left order-2 md:order-1"> {/* Mobil görünümde metin altta, desktop'ta solda */}

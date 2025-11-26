@@ -284,7 +284,7 @@ export default function ProjectPage() {
                             
                             {/* Numaratör */}
                             <div 
-                                className="text-5xl font-serif text-[#360000] italic-numbers mr-8 transition-colors duration-300" 
+                                className="text-5xl font-serif text-[#360000] italic-numbers mr-8 transition-colors duration-300 md:text-left text-right" 
                                 style={{ fontFamily: '"Great Vibes", sans-serif' }}
                             >
                                 {formatIndex(idx)}
