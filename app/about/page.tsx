@@ -395,14 +395,14 @@ export default function AboutSection() {
                     <p className="text-sm leading-relaxed pt-4">
                     <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>1. </span> The Complete 2024 Web Development Bootcamp<br/>
                     Alınan Kurum: Udemy<br/>
-                    Doğrulama: <a href="https://www.udemy.com/certificate/UC013a2472-39a5-4ebe-9c59-2838041f5b30/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
+                    Doğrulama: <a href="https://www.udemy.com/certificate/UC-013a2472-39a5-4ebe-9c59-2838041f5b30/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
                     </p>
 
                     {/* 2. Sertifika */}
                     <p className="text-sm leading-relaxed pt-4">
                     <span className="italic-numbers text-[#630000]" style={{fontSize: "22px"}}>2. </span> The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert<br/>
                     Alınan Kurum: Udemy<br/>
-                    Doğrulama: <a href="https://www.udemy.com/certificate/UC2ae72547-94b9-422d-a22c-dcc2b2a6a606/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
+                    Doğrulama: <a href="https://www.udemy.com/certificate/UC-2ae72547-94b9-422d-a22c-dcc2b2a6a606/" target="_blank" className="text-[#360000] italic-cursive" style={{fontSize: "20px"}}>Link</a>
                     </p>
                 </div>
 
