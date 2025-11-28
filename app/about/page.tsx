@@ -279,7 +279,7 @@ export default function AboutSection() {
                             <p className="text-lg md:text-base leading-relaxed text-gray-800 mb-6">
                                 Ben <span className="font-semibold text-black">Sümeyra Kılıçoğlu</span>, Necmettin Erbakan Üniversitesi Bilgisayar
                                 Mühendisliği 4. sınıf öğrencisiyim. Öğrenimimin ikinci yarısında
-                                başlayacak uzun dönemli <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>6+ ay</span> bir yazılım stajı arıyorum.
+                                başlayacak uzun dönemli <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>5+ ay</span> bir yazılım stajı arıyorum.
                             </p>
                             <p className="text-lg md:text-base leading-relaxed text-gray-800 mb-6">
                                 Web teknolojileri <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>React.js, Next.js, Node.js</span> ve veritabanı
