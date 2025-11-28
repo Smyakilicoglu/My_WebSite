@@ -278,7 +278,7 @@ export default function AboutSection() {
                         <div className="text-left order-2 md:order-1"> {/* Mobil görünümde metin altta, desktop'ta solda */}
                             <p className="text-lg md:text-base leading-relaxed text-gray-800 mb-6">
                                 Ben <span className="font-semibold text-black">Sümeyra Kılıçoğlu</span>, Necmettin Erbakan Üniversitesi Bilgisayar
-                                Mühendisliği 4. sınıf öğrencisiyim. Öğrenimimin ikinci yarısında
+                                Mühendisliği 4. sınıf öğrencisiyim. Öğrenimimin ikinci yarısında ocak ayından itibaren
                                 başlayacak uzun dönemli <span className="italic-cursive text-[#630000]" style={{ fontSize: "22px"}}>5+ ay</span> bir yazılım stajı arıyorum.
                             </p>
                             <p className="text-lg md:text-base leading-relaxed text-gray-800 mb-6">
