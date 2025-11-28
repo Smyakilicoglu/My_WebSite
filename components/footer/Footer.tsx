@@ -11,7 +11,7 @@ import {
 import "../../app/globals.css";
 
 // CV dosyanızın yolunu buraya tanımlayın.
-const CV_FILE_PATH = "/sumeyra_kilicoglu_cv.pdf";
+const CV_FILE_PATH = "/SümeyraKılıçoğlu_CV.pdf";
 
 export default function Footer() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -69,7 +69,7 @@ export default function Footer() {
               İletişim
             </h2>
             <p className="mb-4 text-lg">
-              Detaylı özgeçmişimi inceleyebilir veya aşağıdaki form aracılığıyla bana doğrudan mesaj gönderebilirsiniz.
+              Detaylı özgeçmişimi inceleyebilir veya form aracılığıyla bana doğrudan mesaj gönderebilirsiniz.
             </p>
 
             {/* CV Görseli (CV'nin Yarısı) */}
