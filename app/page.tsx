@@ -14,7 +14,6 @@ export default function Home() {
   const svgRef = useRef<SVGSVGElement>(null);
   const pathsRef = useRef<SVGPathElement[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
-  const aboutSectionRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -23,7 +22,7 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const router = useRouter();
   const buttonRef = useRef<HTMLButtonElement>(null);
-const lineRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
 
 useEffect(() => {
   if (!buttonRef.current || !lineRef.current) return;

@@ -383,7 +383,7 @@ export default function AboutSection() {
                     Bilgisayar Mühendisliği — Necmettin Erbakan Üniversitesi (Konya)
                     </p>
                     <p className="text-sm leading-relaxed pt-4">
-                    4. Sınıf Öğrencisi | AGNO: <span className="italic-cursive text-[#630000]" style={{fontSize: "15px"}}> 2.95</span>
+                    4. Sınıf Öğrencisi | AGNO: <span className="italic-cursive text-[#630000]" style={{fontSize: "15px"}}> 3.07</span>
                     </p>
 
                     {/* Sertifikalar */}
